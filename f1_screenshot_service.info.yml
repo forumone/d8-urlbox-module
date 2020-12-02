@@ -1,0 +1,6 @@
+name: Forum One Screen Shot Service For URLBox
+description: A Service for rendering screenshots via URLBox.
+package: GGC
+type: module
+version: 1.0
+core: 8.x

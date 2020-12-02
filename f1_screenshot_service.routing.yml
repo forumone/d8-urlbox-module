@@ -1,0 +1,14 @@
+f1_screenshot_service.render_screenshot:
+  path: '/screenshot_service/png'
+  defaults:
+    _controller: '\Drupal\f1_screenshot_service\Controller\F1ScreenshotService::renderPNG'
+  requirements:
+    _permission: 'export screenshot'
+
+# PDF support does not work as expected - disabled until a fix can be implemented
+# f1_screenshot_service.render_pdf:
+#   path: '/screenshot_service/pdf'
+#   defaults:
+#     _controller: '\Drupal\f1_screenshot_service\Controller\F1ScreenshotService::renderPDF'
+#   requirements:
+#     _permission: 'export pdf'

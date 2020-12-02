@@ -1,0 +1,4 @@
+export pdf:
+  title: 'Export PDFs using F1 screenshot service'
+export screenshot:
+  title: 'Export screenshots using F1 screenshot service'
