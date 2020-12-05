@@ -102,11 +102,11 @@ class F1ScreenshotService extends ControllerBase {
 
     $parsed_url = parse_url($params['url']);
     if (!in_array($parsed_url['host'], $this->allowedHosts)) {
-      throw new Exception('Requesting a resource on host "'  . $parsed_url['host'] . '" is not permitted');
+      throw new Exception('Requesting a resource on host "'  . $parsed_url['host'] . '" is not permitted.');
     }
 
     if (count($not_allowed)) {
-      throw new Exception('The following options are not permitted: ' . implode(', ', $not_allowed));
+      throw new Exception('The following options are not permitted: ' . implode(', ', $not_allowed) . '.');
     }
 
     return http_build_query($params);
@@ -131,7 +131,11 @@ class F1ScreenshotService extends ControllerBase {
 
     $request_url = "https://api.urlbox.io/v1/$this->apiKey/$type?$params";
 
-    return $this->httpClient->request('GET', $request_url);
+    try {
+      return $this->httpClient->request('GET', $request_url);
+    } catch (Exception $e) {
+      return new Response('Error taking screenshot.', 400);
+    }
   }
 
   /**
